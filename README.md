@@ -6,6 +6,10 @@
 
 This is the third homework of the course "Python in the Enterprise", as requested has been implemented an exention of the Tic Tac Toe single player version (for the previous version you can find further information in this [page](https://github.com/mark91m12/PitE-TicTacToe)), in particular has been implemented a simple Client - Server game.
 
+<p align="center">
+  <img width="460" height="300" src="immagine client server mario competenza tua">
+</p>
+
 ## Features
 
 * possibility to choose single or multiplayer game mode
@@ -15,16 +19,84 @@ This is the third homework of the course "Python in the Enterprise", as requeste
 ## Getting Started
 
 **Prerequisites**
-* For run this project is important to use python version 3 or upper.                                                    
+* In order to run this project is important to use python version 3 or upper.                                                    
   Install it with:
   
   ```shell
-   $ sudo apt-get install python3
+  $ sudo apt-get install python3
   ```
   now check your version: 
   ```shell
   $ python --version
   ```
+## Basic Usage
+**Server Side**
+* Running this command to start the Server : 
+
+  ```shell
+  $ python3 Server.py
+  ```
+  
+  ```shell
+     Server listening.
+     10.205.12.240
+  ```
+ 
+
+**Client Side**
+* Running this command to start the Game : 
+
+  ```shell
+  $ python3 Client.py
+  ```
+  
+  ```shell
+  ************************************************
+  *****           Tic Tac Toe Game          ******
+  ************************************************
+  *                                              *
+  *               Play single player  --- s      *
+  *                                              *
+  *               Play multi player   --- m      *
+  *                                              *
+  ************************************************
+  Please, choose one mode ( s or m ) ----> _
+  ```
+ 
+* Once that multiplayer mode is choosed first user must enter the ip address of the server and the port, at this point he will be put on hold from the server waiting for opponents :
+
+
+   ```
+    please insert ip address of the game server
+   >10.205.12.240
+    please insert Port number of the game server
+   >9999
+    waiting for server connection...
+    Welcome ('10.205.12.240', 59287)
+    Please insert your name
+   >Marco
+    Prepare for the match Marco
+    Waiting for opponents
+   ```
+    
+ * When the second player enter the data the game can start :
+    
+    
+   ```
+    please insert ip address of the game server
+   >10.205.12.240
+    please insert Port number of the game server
+   >9999
+    waiting for server connection...
+    Welcome ('10.205.12.240', 59346)
+    Please insert your name
+   >Mario
+    Prepare to play againts Marco
+   ```
+   
+## Game Screen
+  
+  
   
 ## Authors
 
