@@ -95,7 +95,21 @@ This is the third homework of the course "Python in the Enterprise", as requeste
    ```
    
 ## Game Screen
-  
+
+In this section are proprosed some screenshots of game, both Server and Client sides. 
+
+* Server side
+<p align="center">
+  <img width="660" height="300" src="https://github.com/Mario181091/Mario_content/blob/master/Schermata%20del%202018-04-15%2018-25-34.png">
+</p>
+
+
+* Client side
+<p align="center">
+  <img width="660" height="300" src="https://github.com/Mario181091/Mario_content/blob/master/Schermata%20del%202018-04-15%2018-22-36.png">
+</p>
+
+
   
   
 ## Authors
