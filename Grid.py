@@ -3,64 +3,70 @@
 
 import os
 
+#positions
+LEFT = 4
+CENTER = 5
+RIGHT = 6
+UP = 8
+DOWN = 2
+UP_LEFT_CORNER = 7
+UP_RIGHT_CORNER = 9
+DOWN_LEFT_CORNER = 1
+DOWN_RIGHT_CORNER = 3
+
 
 class Grid:
     def __init__(self):
-        self.list = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-        self.victory = []
-        self.winner = ""
+        self.list = ["", str(DOWN_LEFT_CORNER), str(DOWN), str(DOWN_RIGHT_CORNER), str(LEFT), str(CENTER), str(RIGHT), str(UP_LEFT_CORNER), str(UP), str(UP_RIGHT_CORNER)]
 
     def print_grid(self):
-        print ("   *   *   ")
-        print (" " + self.grid[1] + " * " + self.grid[2] + " * " + self.grid[3] + "  ")
-        print ("   *   *   ")
-        print ("***********")
-        print ("   *   *   ")
-        print (" " + self.grid[4] + " * " + self.grid[5] + " * " + self.grid[6] + "  ")
-        print ("   *   *   ")
-        print ("***********")
-        print ("   *   *   ")
-        print (" " + self.grid[7] + " * " + self.grid[8] + " * " + self.grid[9] + "  ")
-        print ("   *   *   ")
+        print ("   |   |   ")
+        print (" " + self.list[UP_LEFT_CORNER] + " | " + self.list[UP] + " | " + self.list[UP_RIGHT_CORNER] + "  ")
+        print ("   |   |   ")
+        print ("-----------")
+        print ("   |   |   ")
+        print (" " + self.list[LEFT] + " | " + self.list[CENTER] + " | " + self.list[RIGHT] + "  ")
+        print ("   |   |   ")
+        print ("-----------")
+        print ("   |   |   ")
+        print (" " + self.list[DOWN_LEFT_CORNER] + " | " + self.list[DOWN] + " | " + self.list[DOWN_RIGHT_CORNER] + "  ")
+        print ("   |   |   ")
+
+    def draw_grid(self, list):
+        print ("   |   |   ")
+        print (" " + list[UP_LEFT_CORNER] + " | " + list[UP] + " | " + list[UP_RIGHT_CORNER] + "  ")
+        print ("   |   |   ")
+        print ("-----------")
+        print ("   |   |   ")
+        print (" " + list[LEFT] + " | " + list[CENTER] + " | " + list[RIGHT] + "  ")
+        print ("   |   |   ")
+        print ("-----------")
+        print ("   |   |   ")
+        print (" " + list[DOWN_LEFT_CORNER] + " | " + list[DOWN] + " | " + list[DOWN_RIGHT_CORNER] + "  ")
+        print ("   |   |   ")
 
     def is_winner_player(self, type):
-        if self.grid[1] == type and self.grid[2] == type and self.grid[3] == type:
-            self.victory_combination(1, 2, 3)
-            self.winner = type
+        if self.list[DOWN_LEFT_CORNER] == type and self.list[DOWN] == type and self.list[DOWN_RIGHT_CORNER] == type:
             return True
-        elif self.grid[4] == type and self.grid[5] == type and self.grid[6] == type:
-            self.victory_combination(4, 5, 6)
-            self.winner = type
+        elif self.list[LEFT] == type and self.list[CENTER] == type and self.list[RIGHT] == type:
             return True
-        if self.grid[7] == type and self.grid[8] == type and self.grid[9] == type:
-            self.victory_combination(7, 8, 9)
-            self.winner = type
+        if self.list[UP_LEFT_CORNER] == type and self.list[UP] == type and self.list[UP_RIGHT_CORNER] == type:
             return True
-        if self.grid[1] == type and self.grid[4] == type and self.grid[7] == type:
-            self.victory_combination(1, 4, 7)
-            self.winner = type
+        if self.list[DOWN_LEFT_CORNER] == type and self.list[LEFT] == type and self.list[UP_LEFT_CORNER] == type:
             return True
-        if self.grid[2] == type and self.grid[5] == type and self.grid[8] == type:
-            self.victory_combination(2, 5, 8)
-            self.winner = type
+        if self.list[DOWN] == type and self.list[CENTER] == type and self.list[UP] == type:
             return True
-        if self.grid[3] == type and self.grid[6] == type and self.grid[9] == type:
-            self.victory_combination(3, 6, 9)
-            self.winner = type
+        if self.list[DOWN_RIGHT_CORNER] == type and self.list[RIGHT] == type and self.list[UP_RIGHT_CORNER] == type:
             return True
-        if self.grid[3] == type and self.grid[5] == type and self.grid[7] == type:
-            self.victory_combination(3, 5, 7)
-            self.winner = type
+        if self.list[DOWN_RIGHT_CORNER] == type and self.list[CENTER] == type and self.list[UP_LEFT_CORNER] == type:
             return True
-        if self.grid[1] == type and self.grid[5] == type and self.grid[9] == type:
-            self.victory_combination(1, 5, 9)
-            self.winner = type
+        if self.list[DOWN_LEFT_CORNER] == type and self.list[CENTER] == type and self.list[UP_RIGHT_CORNER] == type:
             return True
 
         return False
 
-    def is_grid_full(self, num_of_cell_full):
-        if num_of_cell_full == 9:
+    def is_grid_full(self, run):
+        if run == 9:	# maximum number of moves 
             self.get_snapschoot()
             print ("\n")
             print ("\033[31;1mResult:\033[0m Draw! ")
@@ -69,17 +75,10 @@ class Grid:
         else:
             return False
 
-    def victory_combination(self, a, b, c):
-        self.victory.append(a)
-        self.victory.append(b)
-        self.victory.append(c)
-
-    def get_winner_combination(self):
-        return self.victory
-
-    def get_winner(self):
-        return self.winner
+    def get_grid(self):
+        return self.list
 
     def get_snapschoot(self):
         os.system("clear")
         self.print_grid()
+
