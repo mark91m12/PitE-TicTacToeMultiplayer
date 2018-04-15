@@ -8,7 +8,7 @@ import json
 import time
 
 PORT = 9999  # Reserve a port for your service.
-HOST = socket.gethostname()  # Get local machine name
+HOST = socket.gethostbyname(socket.gethostname())  # Get local ip name
 
 # players index of Server list
 PLAYER_1 = 0
