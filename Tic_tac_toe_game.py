@@ -25,8 +25,8 @@ def start_game():
             choice = input("chose an empty space for X. ")
             if choice in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
                 choice = int(choice)
-                if grid_obj.grid[choice] != "X" and grid_obj.grid[choice] != "O":
-                    grid_obj.grid[choice] = "X"
+                if grid_obj.list[choice] != "X" and grid_obj.list[choice] != "O":
+                    grid_obj.list[choice] = "X"
                     run = run + 1
                     is_choice_wrong = False
                 else:
@@ -52,10 +52,10 @@ def start_game():
         while is_choice_wrong:
             grid_obj.get_snapschoot()
             time.sleep(0.5)
-            choice = computer.get_move_ai(grid_obj.grid)
+            choice = computer.get_move_ai(grid_obj.list)
 
-            if grid_obj.grid[choice] != "O" and grid_obj.grid[choice] != "X":
-                grid_obj.grid[choice] = "O"
+            if grid_obj.list[choice] != "O" and grid_obj.list[choice] != "X":
+                grid_obj.list[choice] = "O"
                 run = run + 1
                 is_choice_wrong = False
 
