@@ -66,7 +66,7 @@ class Grid:
         return False
 
     def is_grid_full(self, run):
-        if run == 9:	# maximum number of moves 
+        if run == 9:
             self.get_snapschoot()
             print ("\n")
             print ("\033[31;1mResult:\033[0m Draw! ")

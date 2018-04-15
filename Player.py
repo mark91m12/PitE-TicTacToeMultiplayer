@@ -10,10 +10,10 @@ class Player:
         self.connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.symbol = ""
 
-    def set_connection(self,connection):
+    def set_connection(self, connection):
         self.connection =connection
 
-    def set_name(self,name):
+    def set_name(self, name):
         self.name = name
 
     def set_address(self, address):

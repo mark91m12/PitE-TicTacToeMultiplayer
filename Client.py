@@ -21,34 +21,34 @@ DOWN_RIGHT_CORNER = "3"
 
 class Client:
     def __init__(self):
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Create socket
-        self.client_socket.connect((HOST, PORT))                                # Bind to the port
+        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
+        self.client_socket.connect((HOST, PORT))                                
         self.grid = Grid()
 
     def start_client(self):
         print("waiting for server connection...")
 
-        init = self.client_socket.recv(1024)                    # Receive no more than 1024 bytes
+        init = self.client_socket.recv(1024)                    
         print(init.decode())
-        self.client_socket.send(str(input()).encode())          # insert name
+        self.client_socket.send(str(input()).encode())          
 
-        data = self.client_socket.recv(1024)                    # waiting opponents message
+        data = self.client_socket.recv(1024)                    
         print(data.decode())
 
-        welcome_message = self.client_socket.recv(1024)         # welcome message
+        welcome_message = self.client_socket.recv(1024)         
         print(welcome_message.decode())
 
         is_game_ended = False
 
-        while not is_game_ended:                                # MAIN LOOP OF THE GAME
-            response = self.client_socket.recv(1024)            # request by server
+        while not is_game_ended:                                
+            response = self.client_socket.recv(1024)            
 
             try:
                 json_object = json.loads(response.decode())
-                type_message = json_object.get("type")          # types = {UPDATE_GUI = 0 MOVE_REQUEST = 1 END_GAME = 2}
+                type_message = json_object.get("type")          
                 grid_list = json_object.get("grid")
 
-                if type_message == 1:                           # MOVE_REQUEST
+                if type_message == 1:                           
                     valid_input = False
                     os.system("clear")
                     self.grid.draw_grid(grid_list)
@@ -67,14 +67,14 @@ class Client:
                             print("\nyou have inserted invalid input")
                             print("Try Again")
 
-                elif type_message == 2:                           # END_GAME
+                elif type_message == 2:                           
                     os.system("clear")
                     self.grid.draw_grid(grid_list)
                     message = json_object.get("message")
                     print("\n"+message)
                     is_game_ended = True
 
-                else:                                              # UPDATE_GUI
+                else:                                              
                     os.system("clear")
                     self.grid.draw_grid(grid_list)
                     message = json_object.get("message")

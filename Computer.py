@@ -20,9 +20,7 @@ class Computer:
         self.type = "O"
 
     def get_move_ai(self, grid):
-        # check row for win and defende
         for i in [DOWN_LEFT_CORNER, LEFT, UP_LEFT_CORNER]:
-            # WIN
             if grid[i + 1] == self.type and grid[i + 2] == self.type and grid[i] == str(i):
                 return i
             elif grid[i] == self.type and grid[i + 2] == self.type and grid[i + 1] == str(i + 1):
@@ -30,7 +28,6 @@ class Computer:
             elif grid[i] == self.type and grid[i + 1] == self.type and grid[i + 2] == str(i + 2):
                 return i + 2
         for i in [DOWN_LEFT_CORNER, LEFT, UP_LEFT_CORNER]:
-            # DEFEND
             if grid[i + 1] == "X" and grid[i + 2] == "X" and grid[i] == str(i):
                 return i
             elif grid[i] == "X" and grid[i + 2] == "X" and grid[i + 1] == str(i + 1):
@@ -38,9 +35,7 @@ class Computer:
             elif grid[i] == "X" and grid[i + 1] == "X" and grid[i + 2] == str(i + 2):
                 return i + 2
 
-        # check column for win and defende
         for i in [DOWN_LEFT_CORNER, DOWN, DOWN_RIGHT_CORNER]:
-            # WIN
             if grid[i + 3] == self.type and grid[i + 6] == self.type and grid[i] == str(i):
                 return i
             elif grid[i] == self.type and grid[i + 6] == self.type and grid[i + 3] == str(i + 3):
@@ -48,7 +43,6 @@ class Computer:
             elif grid[i] == self.type and grid[i + 3] == self.type and grid[i + 6] == str(i + 6):
                 return i + 6
         for i in [DOWN_LEFT_CORNER, DOWN, DOWN_RIGHT_CORNER]:
-            # DEFEND
             if grid[i + 3] == "X" and grid[i + 6] == "X" and grid[i] == str(i):
                 return i
             elif grid[i] == "X" and grid[i + 6] == "X" and grid[i + 3] == str(i + 3):
@@ -56,15 +50,12 @@ class Computer:
             elif grid[i] == "X" and grid[i + 3] == "X" and grid[i + 6] == str(i + 6):
                 return i + 6
 
-        # check for primary diagonal
-        # WIN
         if grid[DOWN_LEFT_CORNER] == self.type and grid[CENTER] == self.type and grid[UP_RIGHT_CORNER] == str(9):
             return 9
         elif grid[DOWN_LEFT_CORNER] == self.type and grid[UP_RIGHT_CORNER] == self.type and grid[CENTER] == str(5):
             return 5
         elif grid[DOWN_LEFT_CORNER] == str(1) and grid[CENTER] == self.type and grid[UP_RIGHT_CORNER] == self.type:
             return 1
-        # DEFEND
         if grid[DOWN_LEFT_CORNER] == "X" and grid[CENTER] == "X" and grid[UP_RIGHT_CORNER] == str(9):
             return 9
         elif grid[DOWN_LEFT_CORNER] == "X" and grid[UP_RIGHT_CORNER] == "X" and grid[CENTER] == str(5):
@@ -72,15 +63,12 @@ class Computer:
         elif grid[DOWN_LEFT_CORNER] == str(1) and grid[CENTER] == "X" and grid[UP_RIGHT_CORNER] == "X":
             return 1
 
-        # check for secondary diagonal
-        # WIN
         if grid[DOWN_RIGHT_CORNER] == self.type and grid[CENTER] == self.type and grid[UP_LEFT_CORNER] == str(7):
             return 7
         elif grid[DOWN_RIGHT_CORNER] == self.type and grid[UP_LEFT_CORNER] == self.type and grid[CENTER] == str(5):
             return 5
         elif grid[3] == str(DOWN_RIGHT_CORNER) and grid[CENTER] == self.type and grid[UP_LEFT_CORNER] == self.type:
             return 3
-        # DEFEND
         if grid[DOWN_RIGHT_CORNER] == "X" and grid[CENTER] == "X" and grid[UP_LEFT_CORNER] == str(7):
             return 7
         elif grid[DOWN_RIGHT_CORNER] == "X" and grid[UP_LEFT_CORNER] == "X" and grid[CENTER] == str(5):
