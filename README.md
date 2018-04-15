@@ -7,7 +7,7 @@
 This is the third homework of the course "Python in the Enterprise", as requested has been implemented an exention of the Tic Tac Toe single player version (for the previous version you can find further information in this [page](https://github.com/mark91m12/PitE-TicTacToe)), in particular has been implemented a simple Client - Server game.
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/Mario181091/Mario_content/blob/master/client-server.jpg">
+  <img width="460" height="300" src="https://github.com/Mario181091/Mario_content/blob/master/client-server(1).jpg">
 </p>
 
 ## Features
