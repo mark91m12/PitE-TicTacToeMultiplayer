@@ -7,7 +7,7 @@
 This is the third homework of the course "Python in the Enterprise", as requested has been implemented an exention of the Tic Tac Toe single player version (for the previous version you can find further information in this [page](https://github.com/mark91m12/PitE-TicTacToe)), in particular has been implemented a simple Client - Server game.
 
 <p align="center">
-  <img width="460" height="300" src="immagine client server mario competenza tua">
+  <img width="460" height="300" src="https://github.com/Mario181091/Mario_content/blob/master/client-server.jpg">
 </p>
 
 ## Features
@@ -88,7 +88,7 @@ This is the third homework of the course "Python in the Enterprise", as requeste
     please insert Port number of the game server
    >9999
     waiting for server connection...
-    Welcome ('10.205.12.240', 59346)
+    Welcome ('127.0.1.1', 59346)
     Please insert your name
    >Mario
     Prepare to play againts Marco
