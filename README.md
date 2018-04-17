@@ -66,7 +66,7 @@ This is the third homework of the course "Python in the Enterprise", as requeste
 * Once that multiplayer mode is choosed first user must enter the ip address of the server and the port, at this point he will be put on hold from the server waiting for opponents :
 
 
-   ```
+   ```shell
     please insert ip address of the game server
    >10.205.12.240
     please insert Port number of the game server
@@ -82,7 +82,7 @@ This is the third homework of the course "Python in the Enterprise", as requeste
  * When the second player enter the data the game can start :
     
     
-   ```
+   ```shell
     please insert ip address of the game server
    >10.205.12.240
     please insert Port number of the game server
