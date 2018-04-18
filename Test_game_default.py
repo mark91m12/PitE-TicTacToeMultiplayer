@@ -503,11 +503,11 @@ class TestGame(unittest.TestCase):
     def test_player_attributes(self):
 
         fake_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        fake_server.bind(("10.205.12.240", 9999))
+        fake_server.bind((socket.gethostbyname(socket.gethostname()), 9999))
         fake_server.listen(5)
 
         fake_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        fake_client.connect(("10.205.12.240", 9999))
+        fake_client.connect((socket.gethostbyname(socket.gethostname()), 9999))
 
         connection, address = fake_server.accept()
 
