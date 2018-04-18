@@ -24,6 +24,7 @@ def start_game():
             grid_obj.get_snapschoot()
             choice = input("chose an empty space for X. ")
             if choice in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+
                 choice = int(choice)
                 if grid_obj.list[choice] != "X" and grid_obj.list[choice] != "O":
                     grid_obj.list[choice] = "X"
