@@ -15,7 +15,8 @@ player = Player()
 def start_game():
 
     run = 0
-    player.insert_player_name()
+    print("\nHello player, you are welcome....")
+    player.insert_player_name(str(input("Insert Your Name \n")))
 
     while True:
 
