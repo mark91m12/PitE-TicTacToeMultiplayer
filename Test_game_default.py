@@ -1,5 +1,6 @@
 import unittest
 import os
+import socket
 
 from Grid import Grid
 from Computer import Computer
@@ -489,6 +490,31 @@ class TestGame(unittest.TestCase):
         cell_for_defense = computer.get_move_ai(grid_obj.list)
         self.assertIsInstance(cell_for_defense, int)
 
+    def test_player_attributes(self):
+
+        fake_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        fake_server.bind(("10.205.12.240", 9999))
+        fake_server.listen(5)
+
+        fake_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        fake_client.connect(("10.205.12.240", 9999))
+
+        connection, address = fake_server.accept()
+
+        player = Player()
+        player.init_player("Adam", address, connection)
+
+        self.assertEqual(player.get_name(), "Adam")
+        self.assertEqual(player.get_player_name(),"Adam")
+        self.assertEqual(player.get_connection(), connection)
+        self.assertEqual(player.get_address(), address)
+
+        fake_client.close()
+        fake_server.close()
+        connection.close()
+
+        player.set_symbol("X")
+        self.assertEqual(player.get_symbol(), "X")
 
     def test_input_name(self):
         test_player = Player()

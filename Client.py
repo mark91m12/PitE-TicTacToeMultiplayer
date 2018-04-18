@@ -21,8 +21,8 @@ DOWN_RIGHT_CORNER = "3"
 
 class Client:
     def __init__(self):
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
-        self.client_socket.connect((HOST, PORT))                                
+        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.client_socket.connect((HOST, PORT))
         self.grid = Grid()
 
     def start_client(self):
@@ -73,6 +73,7 @@ class Client:
                     message = json_object.get("message")
                     print("\n"+message)
                     is_game_ended = True
+                    self.client_socket.close()
 
                 else:                                              
                     os.system("clear")

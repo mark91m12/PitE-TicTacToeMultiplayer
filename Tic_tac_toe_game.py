@@ -40,7 +40,7 @@ def start_game():
 
         if grid_obj.is_winner_player("X"):
             grid_obj.get_snapschoot()
-            player_name = player.get_player_name()
+            player_name = player.get_name()
             print ("\n")
             print ("\033[31;1mResult:\033[0m "+player_name + " wins")
             print ("\n")

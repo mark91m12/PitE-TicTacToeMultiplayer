@@ -168,4 +168,8 @@ class Server:
                     self.send_request(message_draw, PLAYER_2, END_GAME)
 
 
+                self.server_socket.close()
+                self.players[PLAYER_1].close_connection()
+                self.players[PLAYER_2].close_connection()
+
 Server().start_server()

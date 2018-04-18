@@ -37,9 +37,6 @@ class Player:
     def get_player_name(self):
         return self.name
 
-    def get_player_symbol(self):
-        return self.symbol
-
     def init_player(self, name, address, connection):
         self.set_name(name)
         self.set_address(address)
@@ -47,4 +44,7 @@ class Player:
 
     def insert_player_name(self,name):
         self.name = name
+
+    def close_connection(self):
+        self.connection.close()
 
