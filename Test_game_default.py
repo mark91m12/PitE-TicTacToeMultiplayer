@@ -565,9 +565,12 @@ class TestGame(unittest.TestCase):
         self.assertTrue(res)
 
     def test_draw_grid(self):
-        list = ["","1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        list = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         res = grid_obj.draw_grid(list)
         self.assertTrue(res)
+        list_empty = []
+        res = grid_obj.draw_grid(list_empty)
+        self.assertFalse(res)
 
 
 if __name__ == '__main__':
