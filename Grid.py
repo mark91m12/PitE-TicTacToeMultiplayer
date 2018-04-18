@@ -33,17 +33,21 @@ class Grid:
         print ("   |   |   ")
 
     def draw_grid(self, list):
-        print ("   |   |   ")
-        print (" " + list[UP_LEFT_CORNER] + " | " + list[UP] + " | " + list[UP_RIGHT_CORNER] + "  ")
-        print ("   |   |   ")
-        print ("-----------")
-        print ("   |   |   ")
-        print (" " + list[LEFT] + " | " + list[CENTER] + " | " + list[RIGHT] + "  ")
-        print ("   |   |   ")
-        print ("-----------")
-        print ("   |   |   ")
-        print (" " + list[DOWN_LEFT_CORNER] + " | " + list[DOWN] + " | " + list[DOWN_RIGHT_CORNER] + "  ")
-        print ("   |   |   ")
+        if len(list)>0:
+            print ("   |   |   ")
+            print (" " + list[UP_LEFT_CORNER] + " | " + list[UP] + " | " + list[UP_RIGHT_CORNER] + "  ")
+            print ("   |   |   ")
+            print ("-----------")
+            print ("   |   |   ")
+            print (" " + list[LEFT] + " | " + list[CENTER] + " | " + list[RIGHT] + "  ")
+            print ("   |   |   ")
+            print ("-----------")
+            print ("   |   |   ")
+            print (" " + list[DOWN_LEFT_CORNER] + " | " + list[DOWN] + " | " + list[DOWN_RIGHT_CORNER] + "  ")
+            print ("   |   |   ")
+            return True
+        else:
+            False
 
     def is_winner_player(self, type):
         if self.list[DOWN_LEFT_CORNER] == type and self.list[DOWN] == type and self.list[DOWN_RIGHT_CORNER] == type:
