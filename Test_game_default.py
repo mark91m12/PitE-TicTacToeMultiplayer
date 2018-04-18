@@ -9,6 +9,16 @@ grid_obj = Grid()
 computer = Computer()
 player = Player()
 
+#positions
+LEFT = 4
+CENTER = 5
+RIGHT = 6
+UP = 8
+DOWN = 2
+UP_LEFT_CORNER = 7
+UP_RIGHT_CORNER = 9
+DOWN_LEFT_CORNER = 1
+DOWN_RIGHT_CORNER = 3
 
 class TestGame(unittest.TestCase):
 
@@ -489,11 +499,76 @@ class TestGame(unittest.TestCase):
         cell_for_defense = computer.get_move_ai(grid_obj.list)
         self.assertIsInstance(cell_for_defense, int)
 
-
     def test_input_name(self):
         test_player = Player()
         test_player.insert_player_name("Adam")
-        self.assertEqual("Adam",test_player.name)
+        self.assertEqual("Adam", test_player.name)
+
+    def test_get_grid(self):
+        self.assertIsInstance(grid_obj.get_grid(), list)
+
+
+    def test_is_winner_player_first_row(self):
+        grid_obj.list[UP_LEFT_CORNER] = "X";   grid_obj.list[UP] = "X";     grid_obj.list[UP_RIGHT_CORNER] = "X"
+        grid_obj.list[LEFT] = "4";             grid_obj.list[CENTER] = "X"; grid_obj.list[RIGHT] = "6"
+        grid_obj.list[DOWN_LEFT_CORNER] = "7"; grid_obj.list[DOWN] = "8";   grid_obj.list[DOWN_RIGHT_CORNER] = "9"
+        res = grid_obj.is_winner_player("X")
+        self.assertTrue(res)
+
+    def test_is_winner_player_second_row(self):
+        grid_obj.list[UP_LEFT_CORNER] = "1";   grid_obj.list[UP] = "2";     grid_obj.list[UP_RIGHT_CORNER] = "3"
+        grid_obj.list[LEFT] = "X";             grid_obj.list[CENTER] = "X"; grid_obj.list[RIGHT] = "X"
+        grid_obj.list[DOWN_LEFT_CORNER] = "7"; grid_obj.list[DOWN] = "8";   grid_obj.list[DOWN_RIGHT_CORNER] = "9"
+        res = grid_obj.is_winner_player("X")
+        self.assertTrue(res)
+
+    def test_is_winner_player_third_row(self):
+        grid_obj.list[UP_LEFT_CORNER] = "1";   grid_obj.list[UP] = "1";     grid_obj.list[UP_RIGHT_CORNER] = "1"
+        grid_obj.list[LEFT] = "4";             grid_obj.list[CENTER] = "1"; grid_obj.list[RIGHT] = "6"
+        grid_obj.list[DOWN_LEFT_CORNER] = "X"; grid_obj.list[DOWN] = "X";   grid_obj.list[DOWN_RIGHT_CORNER] = "X"
+        res = grid_obj.is_winner_player("X")
+        self.assertTrue(res)
+
+    def test_is_winner_player_first_col(self):
+        grid_obj.list[UP_LEFT_CORNER] = "X";   grid_obj.list[UP] = "2";     grid_obj.list[UP_RIGHT_CORNER] = "3"
+        grid_obj.list[LEFT] = "X";             grid_obj.list[CENTER] = "5"; grid_obj.list[RIGHT] = "6"
+        grid_obj.list[DOWN_LEFT_CORNER] = "X"; grid_obj.list[DOWN] = "8";   grid_obj.list[DOWN_RIGHT_CORNER] = "9"
+        res = grid_obj.is_winner_player("X")
+        self.assertTrue(res)
+
+    def test_is_winner_player_sec_col(self):
+        grid_obj.list[UP_LEFT_CORNER] = "1";   grid_obj.list[UP] = "X";     grid_obj.list[UP_RIGHT_CORNER] = "3"
+        grid_obj.list[LEFT] = "4";             grid_obj.list[CENTER] = "X"; grid_obj.list[RIGHT] = "6"
+        grid_obj.list[DOWN_LEFT_CORNER] = "7"; grid_obj.list[DOWN] = "X";   grid_obj.list[DOWN_RIGHT_CORNER] = "9"
+        res = grid_obj.is_winner_player("X")
+        self.assertTrue(res)
+
+    def test_is_winner_player_third_col(self):
+        grid_obj.list[UP_LEFT_CORNER] = "1";   grid_obj.list[UP] = "2";     grid_obj.list[UP_RIGHT_CORNER] = "X"
+        grid_obj.list[LEFT] = "4";             grid_obj.list[CENTER] = "5"; grid_obj.list[RIGHT] = "X"
+        grid_obj.list[DOWN_LEFT_CORNER] = "7"; grid_obj.list[DOWN] = "8";   grid_obj.list[DOWN_RIGHT_CORNER] = "X"
+        res = grid_obj.is_winner_player("X")
+        self.assertTrue(res)
+
+    def test_is_winner_player_first_diag(self):
+        grid_obj.list[UP_LEFT_CORNER] = "X";   grid_obj.list[UP] = "2";     grid_obj.list[UP_RIGHT_CORNER] = "3"
+        grid_obj.list[LEFT] = "4";             grid_obj.list[CENTER] = "X"; grid_obj.list[RIGHT] = "6"
+        grid_obj.list[DOWN_LEFT_CORNER] = "7"; grid_obj.list[DOWN] = "8";   grid_obj.list[DOWN_RIGHT_CORNER] = "X"
+        res = grid_obj.is_winner_player("X")
+        self.assertTrue(res)
+
+    def test_is_winner_player_sec_diag(self):
+        grid_obj.list[UP_LEFT_CORNER];   grid_obj.list[UP] = "2";     grid_obj.list[UP_RIGHT_CORNER] = "X"
+        grid_obj.list[LEFT] = "4";             grid_obj.list[CENTER] = "X"; grid_obj.list[RIGHT] = "6"
+        grid_obj.list[DOWN_LEFT_CORNER] = "X"; grid_obj.list[DOWN] = "8";   grid_obj.list[DOWN_RIGHT_CORNER] = "9"
+        res = grid_obj.is_winner_player("X")
+        self.assertTrue(res)
+
+    def test_draw_grid(self):
+        list = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        res = grid_obj.draw_grid(list)
+        self.assertTrue(res)
+
 
 if __name__ == '__main__':
     unittest.main()
