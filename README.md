@@ -4,7 +4,8 @@
 
 # PitE-TicTacToeMultiplayer
 
- [![Build Status](https://travis-ci.org/mark91m12/PitE-TicTacToeMultiplayer.svg?branch=master)](https://travis-ci.org/mark91m12/PitE-TicTacToe)      [![Coverage Status](https://coveralls.io/repos/github/mark91m12/PitE-TicTacToeMultiplayer/badge.svg?branch=master)](https://coveralls.io/github/mark91m12/PitE-TicTacToeMultiplayer?branch=master)
+ [![Build Status](https://travis-ci.org/mark91m12/PitE-TicTacToeMultiplayer.svg?branch=master)](https://travis-ci.org/mark91m12/PitE-TicTacToe)      [![Coverage Status](https://coveralls.io/repos/github/mark91m12/PitE-TicTacToeMultiplayer/badge.svg?branch=master)](https://coveralls.io/github/mark91m12/PitE-TicTacToeMultiplayer?branch=master)     [![HitCount](http://hits.dwyl.io/mark91m12/PitE-TicTacToeMultiplayer.svg)](http://hits.dwyl.io/mark91m12/PitE-TicTacToeMultiplayer)
+
 
 This is the third homework of the course "Python in the Enterprise", as requested has been implemented an exention of the Tic Tac Toe single player version (for the previous version you can find further information in this [page](https://github.com/mark91m12/PitE-TicTacToe)), in particular has been implemented a simple Client - Server game.
 
